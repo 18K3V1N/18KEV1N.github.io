@@ -1,1 +1,140 @@
-# 18KEV1N.github.io
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🚔 Alerta Policial - Cumpleaños</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Special+Elite&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-1">
+
+  <!-- Luces de emergencia en la parte superior -->
+  <div class="emergency-bar">
+    <div class="light-blue"></div>
+    <div class="light-red"></div>
+    <div class="light-blue"></div>
+    <div class="light-red"></div>
+    <div class="light-blue"></div>
+    <div class="light-red"></div>
+    <div class="light-blue"></div>
+    <div class="light-red"></div>
+  </div>
+
+  <!-- Estrellas de fondo -->
+  <div class="stars-bg" id="starsBg"></div>
+
+  <!-- Cinta policial decorativa -->
+  <div class="tape tape-top">
+    <span>⚠ ZONA ESPECIAL ⚠ ZONA ESPECIAL ⚠ ZONA ESPECIAL ⚠ ZONA ESPECIAL ⚠ ZONA ESPECIAL ⚠ ZONA ESPECIAL ⚠ ZONA ESPECIAL ⚠ ZONA ESPECIAL ⚠</span>
+  </div>
+
+  <!-- Contenedor principal -->
+  <main class="main-container">
+
+    <!-- Placa policial decorativa -->
+    <div class="badge-decoration">
+      <svg viewBox="0 0 120 120" class="badge-svg">
+        <polygon points="60,5 75,20 95,15 100,35 115,45 108,65 115,85 100,90 95,110 75,105 60,115 45,105 25,110 20,90 5,85 12,65 5,45 20,35 25,15 45,20" fill="#1a1a2e" stroke="#f0c040" stroke-width="3"/>
+        <circle cx="60" cy="60" r="28" fill="#0d0d1a" stroke="#f0c040" stroke-width="2"/>
+        <text x="60" y="52" text-anchor="middle" fill="#f0c040" font-size="8" font-family="Bebas Neue" letter-spacing="1">DEPT.</text>
+        <text x="60" y="64" text-anchor="middle" fill="#f0c040" font-size="12" font-family="Bebas Neue" letter-spacing="2">FELIZ</text>
+        <text x="60" y="76" text-anchor="middle" fill="#f0c040" font-size="8" font-family="Bebas Neue" letter-spacing="1">CUM.</text>
+      </svg>
+    </div>
+
+    <!-- Nota estilo policial / expediente -->
+    <div class="police-note" id="policeNote">
+
+      <div class="note-header">
+        <div class="dept-logo">
+          <span class="dept-icon">🚔</span>
+          <div>
+            <div class="dept-name">DEPTO. DE CUMPLEAÑOS</div>
+            <div class="dept-sub">UNIDAD DE CELEBRACIONES ESPECIALES</div>
+          </div>
+          <span class="dept-icon">🚔</span>
+        </div>
+        <div class="report-number">
+          <span class="report-label">REPORTE #</span>
+          <span class="report-num" id="reportNum">BDY-2025</span>
+        </div>
+      </div>
+
+      <div class="note-divider">
+        <span>▬▬▬▬▬▬▬▬▬ CONFIDENCIAL ▬▬▬▬▬▬▬▬▬</span>
+      </div>
+
+      <div class="note-body">
+        <div class="stamp-container">
+          <div class="stamp urgent">🚨 URGENTE 🚨</div>
+        </div>
+
+        <p class="note-text typewriter" id="noteText">
+          SE HA DETECTADO UNA ACTIVIDAD ALTAMENTE SOSPECHOSA EN EL SECTOR…
+          <br><br>
+          <strong>¡ALGUIEN CUMPLE AÑOS HOY!</strong>
+          <br><br>
+          Tras una exhaustiva investigación, nuestro departamento ha confirmado que este día merece una celebración de primer nivel. Las autoridades han sido notificadas.
+          <br><br>
+          Proceda a la siguiente pantalla para recibir el informe completo.
+        </p>
+
+        <div class="evidence-section">
+          <div class="evidence-item">
+            <span class="ev-icon">📋</span>
+            <span>CASO: Celebración Mayor</span>
+          </div>
+          <div class="evidence-item">
+            <span class="ev-icon">📅</span>
+            <span>FECHA: <span id="currentDate"></span></span>
+          </div>
+          <div class="evidence-item">
+            <span class="ev-icon">⭐</span>
+            <span>ESTADO: ¡ACTIVO!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="note-footer">
+        <div class="fingerprint-area">
+          <div class="fp" id="fp1">◉</div>
+          <div class="fp" id="fp2">◉</div>
+          <div class="fp" id="fp3">◉</div>
+        </div>
+
+        <button class="proceed-btn" id="proceedBtn" onclick="goToPage2()">
+          <span class="btn-icon">🚨</span>
+          <span class="btn-text">VER INFORME COMPLETO</span>
+          <span class="btn-arrow">→</span>
+        </button>
+
+        <div class="classified-stamp">
+          <div class="classified-inner">TOP SECRET</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Cinta policial inferior -->
+  <div class="tape tape-bottom">
+    <span>⚠ ZONA ESPECIAL ⚠ ZONA ESPECIAL ⚠ ZONA ESPECIAL ⚠ ZONA ESPECIAL ⚠ ZONA ESPECIAL ⚠ ZONA ESPECIAL ⚠ ZONA ESPECIAL ⚠ ZONA ESPECIAL ⚠</span>
+  </div>
+
+  <!-- Luces de emergencia inferiores -->
+  <div class="emergency-bar bottom">
+    <div class="light-red"></div>
+    <div class="light-blue"></div>
+    <div class="light-red"></div>
+    <div class="light-blue"></div>
+    <div class="light-red"></div>
+    <div class="light-blue"></div>
+    <div class="light-red"></div>
+    <div class="light-blue"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
