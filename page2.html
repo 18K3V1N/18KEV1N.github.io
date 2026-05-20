@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🏍️ ¡Feliz Cumpleaños! - Informe Policial</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Special+Elite&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-2">
+
+  <!-- Luces de emergencia -->
+  <div class="emergency-bar">
+    <div class="light-blue"></div>
+    <div class="light-red"></div>
+    <div class="light-blue"></div>
+    <div class="light-red"></div>
+    <div class="light-blue"></div>
+    <div class="light-red"></div>
+    <div class="light-blue"></div>
+    <div class="light-red"></div>
+  </div>
+
+  <!-- Confetti container -->
+  <div id="confettiContainer" class="confetti-container"></div>
+
+  <!-- Estrellas -->
+  <div class="stars-bg" id="starsBg2"></div>
+
+  <!-- Cinta policial -->
+  <div class="tape tape-top">
+    <span>🎂 FELIZ CUMPLEAÑOS 🎂 FELIZ CUMPLEAÑOS 🎂 FELIZ CUMPLEAÑOS 🎂 FELIZ CUMPLEAÑOS 🎂 FELIZ CUMPLEAÑOS 🎂 FELIZ CUMPLEAÑOS 🎂</span>
+  </div>
+
+  <main class="main-container page2-main">
+
+    <!-- Título de la escena -->
+    <div class="scene-title" id="sceneTitle">
+      <h1 class="main-title">¡ALERTA DE<br><span class="title-highlight">CUMPLEAÑOS!</span></h1>
+      <div class="title-sub">Mensaje Oficial de las Fuerzas de Celebración</div>
+    </div>
+
+    <!-- Escena de la moto policial -->
+    <div class="motorcycle-scene" id="motoScene">
+
+      <!-- Carretera -->
+      <div class="road">
+        <div class="road-line" id="roadLines"></div>
+        <div class="road-markings"></div>
+      </div>
+
+      <!-- Moto policial SVG animada -->
+      <div class="moto-wrapper" id="motoWrapper">
+        <svg class="police-moto" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+          <!-- Rueda trasera -->
+          <circle cx="70" cy="140" r="32" fill="#1a1a1a" stroke="#555" stroke-width="3"/>
+          <circle cx="70" cy="140" r="22" fill="#2a2a2a" stroke="#888" stroke-width="2"/>
+          <circle cx="70" cy="140" r="8" fill="#f0c040" stroke="#ccc" stroke-width="1"/>
+          <!-- Radios rueda trasera -->
+          <line x1="70" y1="108" x2="70" y2="172" stroke="#666" stroke-width="2"/>
+          <line x1="38" y1="140" x2="102" y2="140" stroke="#666" stroke-width="2"/>
+          <line x1="47" y1="117" x2="93" y2="163" stroke="#666" stroke-width="1.5"/>
+          <line x1="93" y1="117" x2="47" y2="163" stroke="#666" stroke-width="1.5"/>
+
+          <!-- Rueda delantera -->
+          <circle cx="255" cy="140" r="30" fill="#1a1a1a" stroke="#555" stroke-width="3"/>
+          <circle cx="255" cy="140" r="20" fill="#2a2a2a" stroke="#888" stroke-width="2"/>
+          <circle cx="255" cy="140" r="7" fill="#f0c040" stroke="#ccc" stroke-width="1"/>
+          <!-- Radios rueda delantera -->
+          <line x1="255" y1="110" x2="255" y2="170" stroke="#666" stroke-width="2"/>
+          <line x1="225" y1="140" x2="285" y2="140" stroke="#666" stroke-width="2"/>
+          <line x1="234" y1="119" x2="276" y2="161" stroke="#666" stroke-width="1.5"/>
+          <line x1="276" y1="119" x2="234" y2="161" stroke="#666" stroke-width="1.5"/>
+
+          <!-- Chasis principal -->
+          <path d="M100,130 L85,108 L130,85 L180,80 L220,85 L245,110 L230,130 Z" fill="#1a3a6e" stroke="#2255aa" stroke-width="2"/>
+
+          <!-- Cuerpo negro lateral -->
+          <path d="M90,130 L100,105 L160,90 L210,90 L235,115 L220,130 Z" fill="#0d0d1a" stroke="#1a3a6e" stroke-width="1"/>
+
+          <!-- Franja policial dorada -->
+          <path d="M95,118 L120,98 L200,96 L225,115 L210,120 L190,103 L115,105 Z" fill="#f0c040" opacity="0.9"/>
+          <path d="M97,122 L122,102 L202,100 L227,119" stroke="#e8a000" stroke-width="1.5" fill="none"/>
+
+          <!-- Texto POLICIA en la franja -->
+          <text x="155" y="113" text-anchor="middle" fill="#1a1a2e" font-size="9" font-family="Bebas Neue" font-weight="bold" letter-spacing="3">POLICÍA</text>
+
+          <!-- Motor -->
+          <rect x="110" y="108" width="60" height="30" rx="5" fill="#333" stroke="#555" stroke-width="1.5"/>
+          <rect x="120" y="113" width="15" height="8" rx="2" fill="#555"/>
+          <rect x="143" y="113" width="15" height="8" rx="2" fill="#555"/>
+          <line x1="115" y1="125" x2="165" y2="125" stroke="#666" stroke-width="1"/>
+
+          <!-- Escape -->
+          <path d="M110,132 L85,138 L80,145 L95,145 L110,138 Z" fill="#888" stroke="#666" stroke-width="1"/>
+          <ellipse cx="79" cy="145" rx="5" ry="3" fill="#555"/>
+
+          <!-- Asiento -->
+          <path d="M130,80 L195,78 L200,88 L125,90 Z" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+          <path d="M133,80 L195,78 L197,85 L128,87 Z" fill="#2a2a2a"/>
+
+          <!-- Tanque de gasolina -->
+          <ellipse cx="170" cy="84" rx="28" ry="10" fill="#1a3a6e" stroke="#2255aa" stroke-width="1.5"/>
+          <ellipse cx="170" cy="84" rx="20" ry="7" fill="#0d2a5e"/>
+
+          <!-- Horquilla delantera -->
+          <line x1="230" y1="90" x2="255" y2="110" stroke="#888" stroke-width="5" stroke-linecap="round"/>
+          <line x1="220" y1="90" x2="245" y2="110" stroke="#666" stroke-width="3" stroke-linecap="round"/>
+
+          <!-- Manubrio -->
+          <path d="M210,75 Q220,70 230,80" stroke="#888" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="210" cy="75" r="4" fill="#555"/>
+          <circle cx="231" cy="80" r="4" fill="#f0c040"/>
+
+          <!-- Luces delanteras -->
+          <ellipse cx="270" cy="118" rx="12" ry="9" fill="#333" stroke="#555" stroke-width="1.5"/>
+          <ellipse cx="270" cy="118" rx="8" ry="6" fill="#ffe080" opacity="0.9"/>
+          <ellipse cx="270" cy="118" rx="5" ry="4" fill="white" opacity="0.95"/>
+
+          <!-- Haz de luz -->
+          <path d="M278,114 L310,100 L315,110 L310,120 L305,130 L278,122 Z" fill="url(#lightBeam)" opacity="0.35"/>
+          <defs>
+            <linearGradient id="lightBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#ffe080;stop-opacity:0.8"/>
+              <stop offset="100%" style="stop-color:#ffe080;stop-opacity:0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Sirena en la parte superior -->
+          <rect x="145" y="65" width="55" height="18" rx="4" fill="#cc0000" stroke="#ff3333" stroke-width="1.5"/>
+          <rect x="148" y="68" width="22" height="12" rx="3" fill="#0033cc" id="sirenBlue"/>
+          <rect x="174" y="68" width="22" height="12" rx="3" fill="#cc0000" id="sirenRed"/>
+          <ellipse cx="156" cy="74" rx="8" ry="5" fill="#4488ff" id="sirenLight1" opacity="0.9"/>
+          <ellipse cx="183" cy="74" rx="8" ry="5" fill="#ff4444" id="sirenLight2" opacity="0.9"/>
+
+          <!-- Porta-equipaje trasero -->
+          <rect x="88" y="95" width="35" height="20" rx="3" fill="#1a3a6e" stroke="#2255aa" stroke-width="1"/>
+          <rect x="91" y="98" width="29" height="14" rx="2" fill="#0d2a5e"/>
+          <line x1="88" y1="105" x2="123" y2="105" stroke="#2255aa" stroke-width="1"/>
+
+          <!-- Número de placa trasera -->
+          <rect x="58" y="108" width="25" height="14" rx="2" fill="white" stroke="#ccc" stroke-width="1"/>
+          <text x="70" y="119" text-anchor="middle" fill="#1a1a2e" font-size="6" font-family="Bebas Neue" letter-spacing="1">POL-01</text>
+
+          <!-- Sombra de la moto -->
+          <ellipse cx="162" cy="172" rx="100" ry="6" fill="rgba(0,0,0,0.4)"/>
+        </svg>
+
+        <!-- Efectos de velocidad -->
+        <div class="speed-lines" id="speedLines"></div>
+      </div>
+
+    </div>
+
+    <!-- Tarjeta del mensaje de felicitación -->
+    <div class="message-card" id="messageCard">
+
+      <div class="card-header">
+        <div class="card-badge">
+          <svg viewBox="0 0 80 80" width="60" height="60">
+            <polygon points="40,3 50,14 63,10 67,24 78,31 73,44 78,57 67,61 63,75 50,71 40,77 30,71 17,75 13,61 2,57 7,44 2,31 13,24 17,10 30,14" fill="#f0c040" stroke="#c8900a" stroke-width="2"/>
+            <circle cx="40" cy="40" r="19" fill="#1a3a6e" stroke="#f0c040" stroke-width="1.5"/>
+            <text x="40" y="36" text-anchor="middle" fill="#f0c040" font-size="6" font-family="Bebas Neue">FELIZ</text>
+            <text x="40" y="44" text-anchor="middle" fill="white" font-size="8" font-family="Bebas Neue">CUMPLE</text>
+            <text x="40" y="53" text-anchor="middle" fill="#f0c040" font-size="6" font-family="Bebas Neue">AÑOS</text>
+          </svg>
+        </div>
+        <div class="card-title-block">
+          <h2 class="card-title">MENSAJE OFICIAL</h2>
+          <p class="card-subtitle">Departamento de Celebraciones — Sección Especial</p>
+        </div>
+        <div class="card-badge">
+          <svg viewBox="0 0 80 80" width="60" height="60">
+            <polygon points="40,3 50,14 63,10 67,24 78,31 73,44 78,57 67,61 63,75 50,71 40,77 30,71 17,75 13,61 2,57 7,44 2,31 13,24 17,10 30,14" fill="#f0c040" stroke="#c8900a" stroke-width="2"/>
+            <circle cx="40" cy="40" r="19" fill="#1a3a6e" stroke="#f0c040" stroke-width="1.5"/>
+            <text x="40" y="44" text-anchor="middle" fill="white" font-size="18" font-family="Arial">★</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="card-divider">
+        <span>◆ ◆ ◆ CONFIDENCIAL Y CELEBRATORIO ◆ ◆ ◆</span>
+      </div>
+
+      <div class="card-body">
+        <p class="greeting-line">🚨 A QUIEN CORRESPONDA 🚨</p>
+
+        <div class="message-text" id="messageText">
+          <p>
+            En este día tan especial, el <strong>Departamento de Celebraciones</strong> ha recibido la orden de transmitirte el siguiente mensaje de máxima importancia:
+          </p>
+          <p>
+            Desde el momento en que apareciste en este mundo, quedó registrado en nuestros archivos que eres una persona <strong>fuera de lo común</strong>. Tu valentía, tu sonrisa y esa energía que llevas contigo a todos lados hacen que cada día sea mejor con tu presencia. No hay duda: eres de los mejores agentes de la vida.
+          </p>
+          <p>
+            Hoy, las sirenas suenan en tu honor. Las luces azules y rojas no son una alerta de peligro — son el saludo más brillante que podemos ofrecerte. <strong>¡Eres el protagonista del día!</strong>
+          </p>
+          <p>
+            Este año que comienza para ti viene cargado de nuevas misiones, aventuras inesperadas y victorias que aún no imaginas. Que cada obstáculo sea solo un trámite más en tu expediente de logros, y que cada alegría sea registrada en letras de oro en el libro de tu historia.
+          </p>
+          <p>
+            Que tus sueños reciban su <strong>placa de identificación oficial</strong>, que tus metas sean tan claras como las sirenas en la noche, y que cada día de este nuevo año te traiga exactamente lo que mereces: lo mejor, lo más grande, lo más especial.
+          </p>
+          <p>
+            Recuerda: los verdaderos héroes no usan capa — algunos usan uniforme, y tú, sin importar lo que vistas, llevas ese heroísmo dentro. Porque eres un buen hijo, un buen hermano, un excelente padre, un buen compañero y sobre todo un excelente amigo.
+          </p>
+          <p class="final-wish">
+            🎂 <strong>¡FELIZ CUMPLEAÑOS!</strong> 🎂<br>
+            Con todo el cariño del mundo, de quien te quiere.
+          </p>
+          <p class="sign-off">
+            — Unidad Especial de Celebraciones 🚔⭐
+          </p>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <div class="balloons-row" id="balloonsRow">
+          <span class="balloon b1">🎈</span>
+          <span class="balloon b2">🎉</span>
+          <span class="balloon b3">🎊</span>
+          <span class="balloon b4">🎈</span>
+          <span class="balloon b5">🥳</span>
+          <span class="balloon b6">🎉</span>
+          <span class="balloon b7">🎈</span>
+        </div>
+        <div class="footer-stamp">
+          <div class="stamp approved">✔ APROBADO Y CELEBRADO</div>
+        </div>
+        <button class="back-btn" onclick="goBack()">← Volver al expediente</button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div class="tape tape-bottom">
+    <span>🎂 FELIZ CUMPLEAÑOS 🎂 FELIZ CUMPLEAÑOS 🎂 FELIZ CUMPLEAÑOS 🎂 FELIZ CUMPLEAÑOS 🎂 FELIZ CUMPLEAÑOS 🎂 FELIZ CUMPLEAÑOS 🎂</span>
+  </div>
+
+  <div class="emergency-bar bottom">
+    <div class="light-red"></div>
+    <div class="light-blue"></div>
+    <div class="light-red"></div>
+    <div class="light-blue"></div>
+    <div class="light-red"></div>
+    <div class="light-blue"></div>
+    <div class="light-red"></div>
+    <div class="light-blue"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

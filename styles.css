@@ -1,0 +1,977 @@
+
+/* ============================================
+   POLICE BIRTHDAY - GLOBAL STYLES
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Special+Elite&family=Oswald:wght@400;700&display=swap');
+
+:root {
+  --police-dark: #0a0a1a;
+  --police-navy: #1a3a6e;
+  --police-blue: #0033cc;
+  --police-gold: #f0c040;
+  --police-gold-dark: #c8900a;
+  --police-red: #cc0000;
+  --police-white: #f5f5f0;
+  --siren-blue: #4488ff;
+  --siren-red: #ff4444;
+  --text-main: #e8e8d0;
+  --text-dim: #a0a088;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100vh;
+  font-family: 'Special Elite', serif;
+  overflow-x: hidden;
+}
+
+/* =====================
+   BACKGROUNDS
+   ===================== */
+
+body.page-1 {
+  background: radial-gradient(ellipse at 50% 30%, #0d1a3a 0%, #050510 60%, #000008 100%);
+  color: var(--text-main);
+}
+
+body.page-2 {
+  background: radial-gradient(ellipse at 50% 20%, #0a1a3a 0%, #040410 50%, #000008 100%);
+  color: var(--text-main);
+}
+
+.stars-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =====================
+   EMERGENCY LIGHTS BAR
+   ===================== */
+
+.emergency-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 10px;
+  display: flex;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.emergency-bar.bottom {
+  top: auto;
+  bottom: 0;
+}
+
+.light-blue, .light-red {
+  flex: 1;
+  animation: flashBar 0.5s infinite alternate;
+}
+
+.light-blue {
+  background: var(--siren-blue);
+  animation-name: flashBlue;
+}
+
+.light-red {
+  background: var(--siren-red);
+  animation-name: flashRed;
+  animation-delay: 0.25s;
+}
+
+@keyframes flashBlue {
+  0% { background: var(--siren-blue); box-shadow: 0 0 8px var(--siren-blue); }
+  100% { background: #001166; box-shadow: none; }
+}
+
+@keyframes flashRed {
+  0% { background: var(--siren-red); box-shadow: 0 0 8px var(--siren-red); }
+  100% { background: #440000; box-shadow: none; }
+}
+
+/* =====================
+   POLICE TAPE
+   ===================== */
+
+.tape {
+  position: fixed;
+  left: 0; right: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    #f0c040 0px,
+    #f0c040 20px,
+    #1a1a2e 20px,
+    #1a1a2e 40px
+  );
+  height: 28px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  z-index: 100;
+  border-top: 2px solid #c8900a;
+  border-bottom: 2px solid #c8900a;
+}
+
+.tape-top {
+  top: 10px;
+}
+
+.tape-bottom {
+  bottom: 10px;
+}
+
+.tape span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: #1a1a2e;
+  white-space: nowrap;
+  animation: scrollTape 18s linear infinite;
+  display: inline-block;
+  padding-left: 100%;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+  font-weight: 900;
+}
+
+@keyframes scrollTape {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* =====================
+   MAIN CONTAINER
+   ===================== */
+
+.main-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 60px 20px;
+  padding-top: 70px;
+  padding-bottom: 60px;
+}
+
+/* =====================
+   BADGE DECORATION
+   ===================== */
+
+.badge-decoration {
+  margin-bottom: 20px;
+  animation: floatBadge 3s ease-in-out infinite, revealBadge 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-12px) rotate(5deg); }
+}
+
+@keyframes revealBadge {
+  from { opacity: 0; transform: scale(0) rotate(-180deg); }
+  to { opacity: 1; transform: scale(1) rotate(-5deg); }
+}
+
+.badge-svg {
+  width: 90px;
+  height: 90px;
+  filter: drop-shadow(0 0 15px var(--police-gold));
+}
+
+/* =====================
+   POLICE NOTE (PAGE 1)
+   ===================== */
+
+.police-note {
+  background: #f5f0e0;
+  color: #1a1a2e;
+  border-radius: 4px;
+  max-width: 560px;
+  width: 100%;
+  box-shadow:
+    0 0 0 3px #c8900a,
+    0 0 0 6px #1a1a2e,
+    0 20px 60px rgba(0,0,0,0.8),
+    0 0 40px rgba(240,192,64,0.15);
+  animation: noteReveal 0.8s ease 0.5s both;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Textura de papel */
+.police-note::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 24px,
+      rgba(0,0,0,0.06) 24px,
+      rgba(0,0,0,0.06) 25px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes noteReveal {
+  from { opacity: 0; transform: translateY(40px) rotate(-2deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+.note-header {
+  background: var(--police-navy);
+  color: var(--police-gold);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dept-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.dept-icon {
+  font-size: 24px;
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.dept-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--police-gold);
+  line-height: 1.2;
+}
+
+.dept-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.report-number {
+  text-align: right;
+}
+
+.report-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  color: #888;
+  display: block;
+}
+
+.report-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  color: var(--police-gold);
+  letter-spacing: 3px;
+}
+
+.note-divider {
+  background: var(--police-dark);
+  color: var(--police-gold);
+  text-align: center;
+  padding: 6px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.note-body {
+  padding: 24px 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.stamp-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.stamp {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 3px;
+  border: 3px solid;
+  padding: 4px 12px;
+  transform: rotate(8deg);
+  display: inline-block;
+}
+
+.stamp.urgent {
+  color: var(--police-red);
+  border-color: var(--police-red);
+  box-shadow: 0 0 0 1px var(--police-red);
+  animation: stampPulse 1.5s ease-in-out infinite;
+}
+
+.stamp.approved {
+  color: #006600;
+  border-color: #006600;
+  box-shadow: 0 0 0 1px #006600;
+  font-size: 14px;
+  transform: rotate(-4deg);
+  background: rgba(0,102,0,0.05);
+}
+
+@keyframes stampPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.note-text {
+  font-family: 'Special Elite', serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #2a2a3a;
+}
+
+.note-text strong {
+  color: var(--police-navy);
+  font-weight: 900;
+}
+
+.evidence-section {
+  margin-top: 20px;
+  border-top: 2px solid #d0c090;
+  padding-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.evidence-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(26,58,110,0.08);
+  border: 1px solid rgba(26,58,110,0.2);
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  color: #2a2a3a;
+  letter-spacing: 1px;
+}
+
+.ev-icon {
+  font-size: 16px;
+}
+
+.note-footer {
+  background: #ede8d0;
+  border-top: 2px solid #d0c090;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+}
+
+.fingerprint-area {
+  display: flex;
+  gap: 8px;
+}
+
+.fp {
+  font-size: 22px;
+  color: #8a7a60;
+  animation: fpFade 2s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.fp:hover {
+  transform: scale(1.4);
+  color: var(--police-navy);
+}
+
+.fp:nth-child(2) { animation-delay: 0.3s; }
+.fp:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes fpFade {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.classified-stamp {
+  border: 3px solid #880000;
+  padding: 4px 8px;
+  transform: rotate(-10deg);
+}
+
+.classified-inner {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: #880000;
+}
+
+/* =====================
+   PROCEED BUTTON
+   ===================== */
+
+.proceed-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--police-navy);
+  color: var(--police-gold);
+  border: 2px solid var(--police-gold);
+  padding: 12px 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(240,192,64,0.25);
+}
+
+.proceed-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--police-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+  z-index: -1;
+}
+
+.proceed-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.proceed-btn:hover {
+  color: var(--police-dark);
+  box-shadow: 0 0 25px rgba(240,192,64,0.6);
+}
+
+.proceed-btn:active {
+  transform: scale(0.97);
+}
+
+.btn-arrow {
+  transition: transform 0.3s;
+}
+
+.proceed-btn:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+/* =====================
+   PAGE 2 STYLES
+   ===================== */
+
+.page2-main {
+  gap: 30px;
+  padding-top: 80px;
+}
+
+.scene-title {
+  text-align: center;
+  animation: titleDrop 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes titleDrop {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.main-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 8vw, 72px);
+  color: var(--police-white);
+  letter-spacing: 6px;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(255,255,255,0.2);
+}
+
+.title-highlight {
+  color: var(--police-gold);
+  text-shadow: 0 0 20px var(--police-gold), 0 0 60px rgba(240,192,64,0.4);
+  animation: glowText 2s ease-in-out infinite;
+}
+
+@keyframes glowText {
+  0%, 100% { text-shadow: 0 0 20px var(--police-gold), 0 0 60px rgba(240,192,64,0.4); }
+  50% { text-shadow: 0 0 30px var(--police-gold), 0 0 80px rgba(240,192,64,0.7); }
+}
+
+.title-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--text-dim);
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+/* =====================
+   MOTORCYCLE SCENE
+   ===================== */
+
+.motorcycle-scene {
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+  height: 200px;
+  overflow: visible;
+}
+
+.road {
+  position: absolute;
+  bottom: 0;
+  left: -100px;
+  right: -100px;
+  height: 50px;
+  background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+  border-top: 3px solid #555;
+  overflow: hidden;
+}
+
+.road::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  width: 300%;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    #f0c040 0px, #f0c040 40px,
+    transparent 40px, transparent 80px
+  );
+  animation: roadMove 0.6s linear infinite;
+  transform: translateY(-50%);
+}
+
+@keyframes roadMove {
+  from { transform: translateY(-50%) translateX(0); }
+  to { transform: translateY(-50%) translateX(-80px); }
+}
+
+.moto-wrapper {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: motoRide 0.15s ease-in-out infinite alternate, motoEntry 1.2s ease 0.5s both;
+}
+
+@keyframes motoRide {
+  from { transform: translateX(-50%) translateY(0); }
+  to { transform: translateX(-50%) translateY(-4px); }
+}
+
+@keyframes motoEntry {
+  from { opacity: 0; left: -20%; }
+  to { opacity: 1; left: 50%; }
+}
+
+.police-moto {
+  width: 320px;
+  filter: drop-shadow(0 8px 15px rgba(0,0,0,0.6)) drop-shadow(0 0 20px rgba(68,136,255,0.3));
+}
+
+/* Sirena animada */
+#sirenLight1 {
+  animation: sirenFlash1 0.4s ease-in-out infinite alternate;
+}
+#sirenLight2 {
+  animation: sirenFlash2 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes sirenFlash1 {
+  from { opacity: 0.3; fill: #4488ff; }
+  to { opacity: 1; fill: #88bbff; filter: drop-shadow(0 0 6px #4488ff); }
+}
+@keyframes sirenFlash2 {
+  from { opacity: 1; fill: #ff4444; filter: drop-shadow(0 0 6px #ff4444); }
+  to { opacity: 0.3; fill: #cc2222; }
+}
+
+#sirenBlue {
+  animation: sirenBg1 0.4s ease-in-out infinite alternate;
+}
+#sirenRed {
+  animation: sirenBg2 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes sirenBg1 {
+  from { fill: #0033cc; }
+  to { fill: #0066ff; box-shadow: 0 0 10px blue; }
+}
+@keyframes sirenBg2 {
+  from { fill: #ff2222; }
+  to { fill: #880000; }
+}
+
+/* Efecto de luz de sirena sobre el entorno */
+.moto-wrapper::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 30%;
+  width: 120px;
+  height: 60px;
+  background: radial-gradient(ellipse, rgba(68,136,255,0.4) 0%, transparent 70%);
+  animation: sirenGlow 0.4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes sirenGlow {
+  from { background: radial-gradient(ellipse, rgba(68,136,255,0.4) 0%, transparent 70%); }
+  to { background: radial-gradient(ellipse, rgba(255,68,68,0.4) 0%, transparent 70%); }
+}
+
+.speed-lines {
+  position: absolute;
+  right: 100%;
+  top: 20%;
+  width: 80px;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* =====================
+   MESSAGE CARD (PAGE 2)
+   ===================== */
+
+.message-card {
+  background: #f5f0e0;
+  color: #1a1a2e;
+  border-radius: 4px;
+  max-width: 680px;
+  width: 100%;
+  box-shadow:
+    0 0 0 3px var(--police-gold),
+    0 0 0 6px var(--police-navy),
+    0 25px 80px rgba(0,0,0,0.9),
+    0 0 60px rgba(240,192,64,0.1);
+  animation: cardReveal 1s ease 1.5s both;
+  position: relative;
+  overflow: hidden;
+}
+
+.message-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 27px,
+      rgba(0,0,0,0.05) 27px,
+      rgba(0,0,0,0.05) 28px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes cardReveal {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-header {
+  background: var(--police-navy);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.card-title-block {
+  text-align: center;
+  flex: 1;
+}
+
+.card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 5px;
+  color: var(--police-gold);
+  text-shadow: 0 0 15px rgba(240,192,64,0.4);
+}
+
+.card-subtitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+.card-divider {
+  background: var(--police-dark);
+  color: var(--police-gold);
+  text-align: center;
+  padding: 6px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.card-body {
+  padding: 28px 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.greeting-line {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 4px;
+  color: var(--police-navy);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.message-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.message-text p {
+  font-family: 'Special Elite', serif;
+  font-size: 15px;
+  line-height: 1.85;
+  color: #2a2a3a;
+}
+
+.message-text strong {
+  color: var(--police-navy);
+}
+
+.final-wish {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 24px !important;
+  text-align: center;
+  color: var(--police-navy) !important;
+  letter-spacing: 2px;
+  line-height: 1.4 !important;
+  margin-top: 10px;
+  animation: wishPulse 2s ease-in-out infinite;
+}
+
+@keyframes wishPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.sign-off {
+  text-align: right;
+  font-style: italic;
+  color: #5a5a7a !important;
+  border-top: 1px solid #d0c090;
+  padding-top: 14px;
+  margin-top: 6px;
+}
+
+.card-footer {
+  background: #ede8d0;
+  border-top: 2px solid #d0c090;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+/* =====================
+   BALLOONS
+   ===================== */
+
+.balloons-row {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+.balloon {
+  font-size: 24px;
+  display: inline-block;
+  animation: balloonFloat 2s ease-in-out infinite;
+}
+
+.b1 { animation-delay: 0s; }
+.b2 { animation-delay: 0.2s; }
+.b3 { animation-delay: 0.4s; }
+.b4 { animation-delay: 0.6s; }
+.b5 { animation-delay: 0.8s; }
+.b6 { animation-delay: 1.0s; }
+.b7 { animation-delay: 1.2s; }
+
+@keyframes balloonFloat {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* =====================
+   BACK BUTTON
+   ===================== */
+
+.back-btn {
+  background: transparent;
+  color: var(--police-navy);
+  border: 2px solid var(--police-navy);
+  padding: 8px 16px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+
+.back-btn:hover {
+  background: var(--police-navy);
+  color: var(--police-gold);
+}
+
+/* =====================
+   CONFETTI
+   ===================== */
+
+.confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 500;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  border-radius: 2px;
+  animation: confettiFall linear infinite;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-20px) rotate(0deg) translateX(0);
+    opacity: 1;
+  }
+  80% { opacity: 1; }
+  100% {
+    transform: translateY(110vh) rotate(720deg) translateX(60px);
+    opacity: 0;
+  }
+}
+
+/* =====================
+   STAR PARTICLES
+   ===================== */
+
+.star-dot {
+  position: absolute;
+  border-radius: 50%;
+  animation: starTwinkle ease-in-out infinite;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* =====================
+   TYPEWRITER EFFECT
+   ===================== */
+
+.typewriter {
+  opacity: 0;
+  animation: fadeIn 0.5s ease 1.2s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* =====================
+   SPEED LINES
+   ===================== */
+
+.speed-line {
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+  margin: 4px 0;
+  animation: speedLine linear infinite;
+}
+
+@keyframes speedLine {
+  from { transform: translateX(100px); opacity: 0; }
+  30% { opacity: 1; }
+  to { transform: translateX(-200px); opacity: 0; }
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+
+@media (max-width: 600px) {
+  .note-footer {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+  .fingerprint-area {
+    justify-content: center;
+  }
+  .card-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .card-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .police-moto {
+    width: 260px;
+  }
+  .motorcycle-scene {
+    height: 160px;
+  }
+}
